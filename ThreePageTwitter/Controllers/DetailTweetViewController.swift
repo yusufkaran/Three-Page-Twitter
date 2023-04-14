@@ -7,23 +7,33 @@
 
 import UIKit
 
-class DetailTweetViewController: UIViewController {
-
+class DetailTweetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    // MARK: TableView
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(DetailTweetTableViewCell.self, forCellReuseIdentifier: DetailTweetTableViewCell.identifier)
+        return tableView
+    }()
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
-        // Do any additional setup after loading the view.
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
-    */
+    // MARK: TableView Delegates
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DetailTweetTableViewCell.identifier, for: indexPath)
+        return cell
+    }
 
 }

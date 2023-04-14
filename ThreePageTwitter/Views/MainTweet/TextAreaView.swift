@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class TextAreaView: UIView {
-
+    // MARK: Components
     private let profilePic: UIButton = {
         let profilePic = UIButton()
         profilePic.setImage(UIImage(named: "karan"), for: .normal)
@@ -35,14 +35,14 @@ class TextAreaView: UIView {
     }()
     private let tweetLabel: UILabel = {
         let tweetLabel = UILabel()
-        tweetLabel.text = "14 Mayis'ta secimleri kazanacagiz. Erdogan hukumeti bitecek. Topluma refah gelecek. Herkes 14 Mayis'ta sandiklara gitmeli, oy kullanmali. Bir oy bir oydur."
+        tweetLabel.text = "14 Mayis'ta secimleri kazanacagiz. Erdogan hukumeti bitecek. Topluma refah gelecek. Herkes o gun sandiklara gitmeli, oy kullanmali. Bir oy bir oydur. "
         tweetLabel.textAlignment = .left
         tweetLabel.font = FontTemp.sLight.uiFontCode
         tweetLabel.textColor = LabelColor.boldColor.uiColorCode
         tweetLabel.numberOfLines = 0
         return tweetLabel
     }()
-    
+    // MARK: Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(profilePic)
@@ -54,7 +54,7 @@ class TextAreaView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    // MARK: Configure Constraints
     private func configureConstraints() {
         profilePic.snp.makeConstraints { make in
             make.height.width.equalTo(50)
