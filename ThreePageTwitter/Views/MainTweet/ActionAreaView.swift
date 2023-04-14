@@ -9,31 +9,31 @@ import UIKit
 import SnapKit
 
 class ActionAreaView: UIView {
-
+    // MARK: Components
     private let retweetNumber: UILabel = {
         let retweetNumber = UILabel()
-        retweetNumber.text = "13"
+        retweetNumber.text = "89"
         retweetNumber.font = FontTemp.ssLight.uiFontCode
         retweetNumber.textColor = LabelColor.boldColor.uiColorCode
         return retweetNumber
     }()
     private let likeNumber: UILabel = {
         let likeNumber = UILabel()
-        likeNumber.text = "315"
+        likeNumber.text = "933"
         likeNumber.textColor = LabelColor.boldColor.uiColorCode
         likeNumber.font = FontTemp.ssLight.uiFontCode
         return likeNumber
     }()
     private let commentNumber: UILabel = {
         let commentNumber = UILabel()
-        commentNumber.text = "10"
+        commentNumber.text = "2"
         commentNumber.font = FontTemp.ssLight.uiFontCode
         commentNumber.textColor = LabelColor.boldColor.uiColorCode
         return commentNumber
     }()
     private let statisticsNumber: UILabel = {
         let viewNumber = UILabel()
-        viewNumber.text = "24.7K"
+        viewNumber.text = "28.4K"
         viewNumber.font = FontTemp.ssLight.uiFontCode
         viewNumber.textColor = LabelColor.boldColor.uiColorCode
         return viewNumber
@@ -73,7 +73,7 @@ class ActionAreaView: UIView {
         shareIcon.contentMode = .scaleAspectFill
         return shareIcon
     }()
-    
+    // MARK: Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(retweetNumber)
@@ -90,6 +90,7 @@ class ActionAreaView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    // MARK: Configure Constraints
     private func configureConstraints(){
         commentIcon.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(125)

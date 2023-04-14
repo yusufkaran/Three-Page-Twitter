@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailTextAreaView: UIView {
-
+    // MARK: Components
     private let profilePic: UIButton = {
         let profilePic = UIButton()
         profilePic.setImage(UIImage(named: "karan"), for: .normal)
@@ -34,14 +34,14 @@ class DetailTextAreaView: UIView {
     }()
     private let tweetLabel: UILabel = {
         let tweetLabel = UILabel()
-        tweetLabel.text = "14 Mayis'ta secimleri kazanacagiz. Erdogan hukumeti bitecek. Topluma refah gelecek. Herkes 14 Mayis'ta sandiklara gitmeli, oy kullanmali. Bir oy bir oydur."
+        tweetLabel.text = "14 Mayis'ta secimleri kazanacagiz. Erdogan hukumeti bitecek. Topluma refah gelecek. Herkes o gun sandiklara gitmeli, oy kullanmali. Bir oy bir oydur."
         tweetLabel.textAlignment = .left
         tweetLabel.font = FontTemp.sLight.uiFontCode
         tweetLabel.textColor = LabelColor.boldColor.uiColorCode
         tweetLabel.numberOfLines = 0
         return tweetLabel
     }()
-    
+    // MARK: Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(profilePic)
@@ -53,7 +53,7 @@ class DetailTextAreaView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    // MARK: Configure Constraints
     private func configureConstraints() {
         profilePic.snp.makeConstraints { make in
             make.height.width.equalTo(50)
@@ -61,17 +61,18 @@ class DetailTextAreaView: UIView {
             make.leading.equalToSuperview().offset(15)
         }
         userName.snp.makeConstraints { make in
-            make.top.equalTo(profilePic.snp.top)
-            make.leading.equalTo(profilePic.snp.trailing).offset(15)
+            make.top.equalToSuperview().offset(18)
+            make.leading.equalTo(profilePic.snp.trailing).offset(12)
         }
         nickName.snp.makeConstraints { make in
-            make.top.equalTo(userName.snp.top)
-            make.leading.equalTo(userName.snp.trailing).offset(7)
+            make.top.equalTo(userName.snp.bottom).offset(1)
+            make.leading.equalTo(profilePic.snp.trailing).offset(12)
         }
         tweetLabel.snp.makeConstraints { make in
-            make.top.equalTo(nickName.snp.bottom).offset(5)
-            make.leading.equalTo(userName.snp.leading)
+            make.top.equalTo(profilePic.snp.bottom).offset(15)
+            make.leading.equalTo(profilePic.snp.leading)
             make.trailing.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-15)
         }
     }
 

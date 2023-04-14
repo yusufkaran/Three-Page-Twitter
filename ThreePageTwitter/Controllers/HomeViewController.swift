@@ -8,16 +8,16 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    // MARK: TableView
     private let tableView: UITableView = {
        let tableView = UITableView()
         tableView.register(TweetTableViewCell.self, forCellReuseIdentifier: TweetTableViewCell.identifier)
         return tableView
     }()
-    
+    // MARK: ConfigureNavigationBar
     private func configureNavigationBar() {
         let profileImage = UIImage(systemName: "person")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: profileImage, style: .plain, target: self, action: #selector(navigateToDetailView))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: profileImage, style: .plain, target: self, action: #selector(navigateToProfileView))
         
         let logoImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
         logoImageView.contentMode = .scaleAspectFill
@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         middleView.addSubview(logoImageView)
         navigationItem.titleView = middleView
     }
-
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
@@ -40,12 +40,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             $0.edges.equalToSuperview()
         }
     }
+    // MARK: @objc Navigate func
+    @objc func navigateToProfileView() {
+        let profileView = ProfileViewController()
+        navigationController?.pushViewController(profileView, animated: true)
+    }
     @objc func navigateToDetailView() {
         let detailTweetView = DetailTweetViewController()
         navigationController?.pushViewController(detailTweetView, animated: true)
     }
 
-
+    // MARK: TableView Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
@@ -57,8 +62,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         navigateToDetailView()
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 500
-//    }
 }
 

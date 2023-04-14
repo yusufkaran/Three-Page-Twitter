@@ -8,16 +8,25 @@
 import UIKit
 
 class DetailTweetTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // MARK: Identifier
+    static let identifier = "DetailTweetTableViewCell"
+    
+    let allDetailTweetView = AllDetailTweetView()
+    
+    // MARK: Lifecycle
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(allDetailTweetView)
+        configureConstraints()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
+    
+    // MARK: Configure Constraints
+    private func configureConstraints() {
+        allDetailTweetView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
 }

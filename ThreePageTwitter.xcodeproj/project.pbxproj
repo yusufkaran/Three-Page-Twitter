@@ -76,10 +76,8 @@
 		B52C653A29E715680009BA22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B56B357529E85B6F00079568 /* MainTweet */,
 				B5333B9729E853CB006A8A26 /* DetailTweet */,
-				B52C653B29E715930009BA22 /* TextAreaView.swift */,
-				B52C653D29E715A10009BA22 /* ActionAreaView.swift */,
-				B52C653F29E716440009BA22 /* AllTweetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -107,10 +105,20 @@
 			children = (
 				B5333B9829E85434006A8A26 /* AllDetailTweetView.swift */,
 				B5333B9A29E85485006A8A26 /* DetailTextAreaView.swift */,
-				B5333B9C29E854BF006A8A26 /* DetailActionAreaView.swift */,
 				B5333B9E29E857F0006A8A26 /* DetailActionCountView.swift */,
+				B5333B9C29E854BF006A8A26 /* DetailActionAreaView.swift */,
 			);
 			path = DetailTweet;
+			sourceTree = "<group>";
+		};
+		B56B357529E85B6F00079568 /* MainTweet */ = {
+			isa = PBXGroup;
+			children = (
+				B52C653B29E715930009BA22 /* TextAreaView.swift */,
+				B52C653D29E715A10009BA22 /* ActionAreaView.swift */,
+				B52C653F29E716440009BA22 /* AllTweetView.swift */,
+			);
+			path = MainTweet;
 			sourceTree = "<group>";
 		};
 		B5844EBC29E5A94700496BF0 = {
