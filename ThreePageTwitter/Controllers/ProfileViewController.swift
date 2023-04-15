@@ -6,24 +6,50 @@
 //
 
 import UIKit
+import SnapKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    private let profileTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(TweetTableViewCell.self, forCellReuseIdentifier: TweetTableViewCell.identifier)
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
+        navigationItem.title = "Profile"
+        view.addSubview(profileTableView)
+        let headerView = ProfileTableViewHeader(frame: CGRect(x: 0, y: 0, width: profileTableView.frame.width, height: 415))
+        
+        profileTableView.delegate = self
+        profileTableView.dataSource = self
+        profileTableView.tableHeaderView = headerView
+        profileTableView.contentInsetAdjustmentBehavior = .never
+//        navigationController?.navigationBar.isHidden = true
+        configureConstraints()
+    }
+    @objc func navigateToDetailView() {
+        let detailTweetView = DetailTweetViewController()
+        navigationController?.pushViewController(detailTweetView, animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func configureConstraints() {
+        profileTableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
-    */
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TweetTableViewCell.identifier, for: indexPath) as?
+                TweetTableViewCell else { return UITableViewCell()
+        }
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigateToDetailView()
+    }
 }

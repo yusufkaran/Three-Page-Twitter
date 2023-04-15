@@ -30,6 +30,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
+        navigationItem.title = "Home"
         tableView.delegate = self
         tableView.dataSource = self
         configureNavigationBar()

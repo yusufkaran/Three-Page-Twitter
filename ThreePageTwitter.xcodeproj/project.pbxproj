@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B521C38929E96038002D8E25 /* ProfileTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B521C38829E96038002D8E25 /* ProfileTableViewHeader.swift */; };
 		B52C653C29E715930009BA22 /* TextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52C653B29E715930009BA22 /* TextAreaView.swift */; };
 		B52C653E29E715A10009BA22 /* ActionAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52C653D29E715A10009BA22 /* ActionAreaView.swift */; };
 		B52C654029E716450009BA22 /* AllTweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52C653F29E716440009BA22 /* AllTweetView.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B521C38829E96038002D8E25 /* ProfileTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewHeader.swift; sourceTree = "<group>"; };
 		B52C653B29E715930009BA22 /* TextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaView.swift; sourceTree = "<group>"; };
 		B52C653D29E715A10009BA22 /* ActionAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionAreaView.swift; sourceTree = "<group>"; };
 		B52C653F29E716440009BA22 /* AllTweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTweetView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B521C38729E96009002D8E25 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B521C38829E96038002D8E25 /* ProfileTableViewHeader.swift */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
 		B52C653929E715530009BA22 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +86,7 @@
 		B52C653A29E715680009BA22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B521C38729E96009002D8E25 /* ProfileScreen */,
 				B56B357529E85B6F00079568 /* MainTweet */,
 				B5333B9729E853CB006A8A26 /* DetailTweet */,
 			);
@@ -229,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B521C38929E96038002D8E25 /* ProfileTableViewHeader.swift in Sources */,
 				B5333B9929E85434006A8A26 /* AllDetailTweetView.swift in Sources */,
 				B5844ECD29E5A94800496BF0 /* HomeViewController.swift in Sources */,
 				B5844EC929E5A94800496BF0 /* AppDelegate.swift in Sources */,

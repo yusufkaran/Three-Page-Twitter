@@ -15,6 +15,7 @@ enum FontTemp {
     case ssLight
     case mLight
     case mBold
+    case profileItem
     
     var uiFontCode: UIFont {
         switch self {
@@ -30,6 +31,8 @@ enum FontTemp {
             return .systemFont(ofSize: 17, weight: .light)
         case .mBold:
             return .systemFont(ofSize: 17, weight: .bold)
+        case .profileItem:
+            return .systemFont(ofSize: 14, weight: .light)
         }
     }
 }
